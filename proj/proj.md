@@ -17,10 +17,7 @@
 >address 项目地址 String
 >description 项目描述 String
 >crew_num 所需人员数量 Integer
->start_date 开始时间 String
->end_date 结束时间 String
 >category  项目品类 1-京东 2-淘宝 3-顺丰 Integer
->wage_mode 结算模式 1-计时 2-计件  Integer
 >pic_url_list 项目图片地址列表 String
 
 ### 调用示例
@@ -31,10 +28,7 @@
   "address": "上海虹桥",
   "descrption": "这是一个大项目",
   "crew_num": 200,
-  "start_date": "2018-09-10",
-  "end_date": "2018-07-10",
   "category": 1,
-  "wage_mode": 1,
   "pic_url_list": "qiniu.com/asslguurlqq;qiniu.com/asslguurlqc"
 }
 ```

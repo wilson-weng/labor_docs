@@ -16,7 +16,6 @@
 >phone 电话 Long
 >proj_id 项目编号 Integer
 >id_card_front_pic 身份证正面照 String
->id_card_back_pic 身份证反面照 String
 
 
 ### 调用示例
@@ -26,8 +25,7 @@
  "id_card_num": "510113199510167509",
  "phone": 18810922511,
  "proj_id: 1,
- "id_card_front_pic", "qiniu.com/abxazggqqp",
- "id_card_back_pic", "qiniu.com/abxazggqqp",
+ "id_card_front_pic", "qiniu.com/abxazggqqp"
 }
 ```
 

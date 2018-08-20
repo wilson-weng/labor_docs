@@ -10,10 +10,12 @@
 
 ### 参数列表
 >page 第几页 Integer
+>proj_id 项目编号 Integer
 
 ### 调用示例
 {
-  "page": 1
+  "page": 1,
+  "proj_id": 1
 }
 
 ### 成功返回
@@ -25,7 +27,6 @@
    page:1
  },
  "status": "ok"
- 
 }
 ```
 
