@@ -4,7 +4,7 @@
 
 ### 接口介绍
 
->uri: /settlement/work_data/import
+>uri: /wages/workdata/import
 >method: POST
 >content-type: application/x-www-form-urlencoded
 >headers: 
@@ -19,7 +19,7 @@
 
 ### 参数列表
 
->project_id 项目编号 Integer
+>proj_id 项目编号 Integer
 >file 文件 file
 >import_mode 导入模式 Integer 0-正常导入, 1-覆盖导入
 
@@ -65,21 +65,23 @@ export function submitForm(formData) {
 ## 结算列表
 
 ### 接口介绍
->uri: /settlement
+>uri: /wages
 >method: GET
 >返回数据格式: JSON
 
 ### 参数列表
 >page 第几页 Integer
->start_date 开始日期
->end_date 结束日期
+>start_date 开始日期 String
+>end_date 结束日期 String
+>proj_id 项目编号 Integer
 
 
 ### 调用示例
 {
   "page": 1,
   "start_date": "2018-09-01",
-  "end_date": "2018-09-11"
+  "end_date": "2018-09-11",
+  "proj_id": 1
 }
 
 ### 成功返回
@@ -109,14 +111,15 @@ export function submitForm(formData) {
 ## 结算导出
 
 ### 接口介绍
->uri: /settlement
+>uri: /wages/export
 >method: GET
 >返回数据格式: JSON
 
 ### 参数列表
 >page 第几页 Integer
->start_date 开始日期
->end_date 结束日期
+>start_date 开始日期 String
+>end_date 结束日期 String
+>proj_id 项目编号 Integer
 
 
 ### 调用示例

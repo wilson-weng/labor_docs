@@ -4,7 +4,7 @@
 
 ### 接口介绍
 
->uri: /sys_user/login
+>uri: /manager/login
 >method: POST
 >content-type: application/x-www-form-urlencoded
 >返回数据格式: JSON
@@ -50,7 +50,7 @@
 
 ### 接口介绍
 
->uri: /sys_user/forget/psw
+>uri: /manager/forget/psw
 >method: GET
 >返回数据格式: JSON
 
@@ -83,7 +83,7 @@
 
 ### 接口介绍
 
->uri: /sys_user/user_id
+>uri: /manager/<int:manager_id>
 >method: PUT
 >返回数据格式: JSON
 

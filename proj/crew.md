@@ -16,7 +16,6 @@
 >phone 电话 Long
 >proj_id 项目编号 Integer
 >id_card_front_pic 身份证正面照 String
->id_card_back_pic 身份证反面照 String
 
 
 ### 调用示例
@@ -26,8 +25,7 @@
  "id_card_num": "510113199510167509",
  "phone": 18810922511,
  "proj_id: 1,
- "id_card_front_pic", "qiniu.com/abxazggqqp",
- "id_card_back_pic", "qiniu.com/abxazggqqp",
+ "id_card_front_pic", "qiniu.com/abxazggqqp"
 }
 ```
 
@@ -110,17 +108,21 @@ export function submitForm(formData) {
 ## 项目人员删除
 
 ### 接口介绍
->uri: /proj/crew/<int:id>
+>uri: /proj/crew
 >method: DELETE
 >content-type: application/x-www-form-urlencoded
 >返回数据格式: JSON
 
 ### 参数列表
-> id 此项目人员对应数据id Integer
+> proj_id 项目编号 Integer
+> crew_id 人员编号 Integer
 
 
 ### 调用示例
-
+{
+  "proj_id": 1,
+  "crew_id": 2
+}
 
 ### 成功返回
 ```
@@ -137,7 +139,7 @@ export function submitForm(formData) {
 }
 ```
 
-## 项目人员更新列表(支持搜索)
+## 项目人员列表(支持搜索)
 >uri: /proj/crew
 >method: GET
 >content-type: application/x-www-form-urlencoded
@@ -146,6 +148,7 @@ export function submitForm(formData) {
 ### 参数列表
 >page  具体页 Integer
 >search_str 搜索字符串  String
+>proj_id 项目编号 Integer
 >search_type 搜索方式1-员工姓名 2-员工电话
 
 ### 调用示例
@@ -153,7 +156,8 @@ export function submitForm(formData) {
 {
   "page": 1,
   "search_str": "张员外",
-  "search_type": 1
+  "search_type": 1,
+  "proj_id": 1
 }
 ```
 
@@ -192,14 +196,16 @@ export function submitForm(formData) {
 ### 参数列表
 >page  具体页 Integer
 >search_str 搜索字符串  String
->search_type 搜索方式1-员工姓名 2-员工电话
+>search_type 搜索方式1-员工姓名 2-员工电话 Integer
+>proj_id 项目人员编号  Integer
 
 ### 调用示例
 ```
 {
   "page": 1,
   "search_str": "张员外",
-  "search_type": 1
+  "search_type": 1,
+  "proj_id": 1
 }
 ```
 
@@ -224,17 +230,21 @@ export function submitForm(formData) {
 ## 员工详情
 
 ### 接口介绍
->uri: /proj/crew/<int:crew_id>
+>uri: /proj/crew
 >method: GET
 
 >返回数据格式: JSON
 
 ### 参数列表
 >crew_id 员工编号 Integer
+>proj_id 项目编号 Integer
 
 
 ### 调用示例
-
+{
+ "crew_id": 1,
+ "proj_id": 2
+}
 
 ### 成功返回
 ```
@@ -268,20 +278,24 @@ export function submitForm(formData) {
 ```
 ---
 
-## 当前项目员工离职
+## 指定项目员工离职
 
 ### 接口介绍
->uri: /proj/crew/<int:crew_id>
->method: DELETE
+>uri: /proj/crew/leave
+>method: PUT
 >content-type: application/x-www-form-urlencoded
 >返回数据格式: JSON
 
 ### 参数列表
 >crew_id 员工编号 Integer
+>proj_id 项目编号 Integer
 
 
 ### 调用示例
-
+{
+   "crew_id": 1,
+   "proj_id": 2
+}
 
 ### 成功返回
 ```
@@ -304,17 +318,20 @@ export function submitForm(formData) {
 ## 当前项目员工审核
 
 ### 接口介绍
->uri: /proj/crew/verify/<int:crew_id>
+>uri: /proj/crew/verify
 >method: PUT
 >content-type: application/x-www-form-urlencoded
 >返回数据格式: JSON
 
 ### 参数列表
 >crew_id 员工编号 Integer
+>proj_id 项目编号  Integer
 >verify_status 1-审核通过, 2-审核驳回
 
 ### 调用示例
 { 
+  "proj_id": 1,
+  "crew_id": 2,
   "verify_status": 1
 }
 

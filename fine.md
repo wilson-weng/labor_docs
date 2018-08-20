@@ -19,7 +19,7 @@
 
 ### 参数列表
 
->project_id 项目编号 Integer
+>proj_id 项目编号 Integer
 >file 文件 file
 >import_mode 导入模式 Integer 0-正常导入, 1-覆盖导入
 
@@ -68,9 +68,10 @@ export function submitForm(formData) {
 >返回数据格式: JSON
 
 ### 参数列表
->page 第几页 Integer
->start_date 开始日期
->end_date 结束日期
+>page 第几页 Integer 
+>start_date 开始日期 String
+>end_date 结束日期 String
+>proj_id 项目编号 Integer
 
 
 ### 调用示例
@@ -104,7 +105,7 @@ export function submitForm(formData) {
 ---
 
 
-## 结算导出
+## 赔付导出
 
 ### 接口介绍
 >uri: /fine
@@ -113,8 +114,9 @@ export function submitForm(formData) {
 
 ### 参数列表
 >page 第几页 Integer
->start_date 开始日期
->end_date 结束日期
+>start_date 开始日期 String
+>end_date 结束日期 String
+>proj_id 项目编号 Integer
 
 
 ### 调用示例
