@@ -143,7 +143,6 @@
 
 ### 参数列表
 >page 第几页 Integer
->supplier_name 供应商 String
 
 ### 调用示例
 {
@@ -154,7 +153,8 @@
 ```
 {
  "content": {
-   result:[],
+   result:[{"company_id": 1, "company_name: "明星人力资源公司", "address": "浦东南路",
+    "crew_num": 100, "description": "", "incumbency": 90, "current_month_income": 480001331, "message_count": 6}],
    total_page: 10,
    page:1
  },
