@@ -55,15 +55,19 @@
 >返回数据格式: JSON
 
 ### 参数列表
+> phone 电话号码 Long
 
 ### 调用示例
+{
+  "phone": 15122133551
+}
 
 ### 成功返回
 ```
 {
  "status": "ok",
  "content": {
-   url: "https://mananger.hrms.cn/sys_user/change/psw?req=1225333"
+   url: "https://mananger.hrms.cn/sys_user/change/psw?manager_id=1&req=1225333"
  }
 }
 ```
@@ -88,7 +92,7 @@
 >返回数据格式: JSON
 
 ### 参数列表
->user_id 用户id Integer
+>manager_id 用户id Integer
 >password 密码 String
 
 ### 调用示例

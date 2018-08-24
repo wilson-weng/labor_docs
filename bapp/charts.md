@@ -12,13 +12,13 @@
 
 ### 参数列表
 > proj_id 项目编号 Integer 0表示全部项目
-> data_type 数据类型,逗号隔开  // 0-表示所有 1-收支, 2-平均人效, 3-人员流失率
+> chart_id chart编号,逗号隔开,可同时获取多种数据  // 0-表示所有 1-收支, 2-平均人效, 3-人员流失率
 
 ### 调用示例
 ```
 {
   "proj_id": 1,
-  "data_type": "1, 2, 3"
+  "chart_id": "1, 2, 3"
 }
 ```
 
@@ -29,10 +29,12 @@
  "content": [
   {
     "style": "bar", //图标样式 bar-柱状图/条形图 pie-饼图 table-表格
-    "data_type": 1, 
+    "chart_id": 1, 
     "charts_name": "收支",
-    "total_income": 190555, //元
-    "salary": 121000
+    "meta_data": {
+       "total_income": 190555, //元
+       "salary": 121000
+    },
     "data_set": [
        {"month:""2018-01-01": num:0},
        {"month:""2018-02-01": num:1000},
@@ -43,7 +45,7 @@
     ]
   },
   {
-      "data_type": 2,
+      "chart_id": 2,
       "charts_name": "平均人效",
       "style": "bar",
       "data_set": [
@@ -56,8 +58,8 @@
       ]
    },
    {
-       "data_type": 3, 
-       "charts_name": "人员流失率",
+       "chart_id": 3, 
+       "chart_name": "人员流失率",
        "style": "bar",
        "data_set": [
             {"week:"W1", num:0, "leave_rate": 0.282},

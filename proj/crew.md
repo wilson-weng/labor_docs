@@ -11,8 +11,9 @@
 
 
 ### 参数列表
->real_name 公司名称 String
+>real_name 人员姓名 String
 >id_card_num 身份证号码 String
+>supplier_name 供应商 String
 >phone 电话 Long
 >proj_id 项目编号 Integer
 >id_card_front_pic 身份证正面照 String
@@ -25,7 +26,8 @@
  "id_card_num": "510113199510167509",
  "phone": 18810922511,
  "proj_id: 1,
- "id_card_front_pic", "qiniu.com/abxazggqqp"
+ "id_card_front_pic", "qiniu.com/abxazggqqp",
+ "supplier_name": "xxx"
 }
 ```
 
@@ -49,7 +51,7 @@
 
 ### 接口介绍
 
->uri: /crew/import
+>uri: /proj/crew/batch/import
 >method: POST
 >content-type: application/x-www-form-urlencoded
 >headers: 
@@ -138,7 +140,7 @@ export function submitForm(formData) {
  "msg": ""
 }
 ```
-
+---
 ## 项目人员列表(支持搜索)
 >uri: /proj/crew
 >method: GET
@@ -150,6 +152,7 @@ export function submitForm(formData) {
 >search_str 搜索字符串  String
 >proj_id 项目编号 Integer
 >search_type 搜索方式1-员工姓名 2-员工电话
+>supplier_name 供应商 String
 
 ### 调用示例
 ```
@@ -157,7 +160,8 @@ export function submitForm(formData) {
   "page": 1,
   "search_str": "张员外",
   "search_type": 1,
-  "proj_id": 1
+  "proj_id": 1,
+  "supplier_name": "xxx"
 }
 ```
 
@@ -166,7 +170,7 @@ export function submitForm(formData) {
 ```
 {
  "content": {
-   result:[{"real_name": "张三", "phone": 16133131011, "entry_date": "2018-09113", "total_work_day": 30}],
+   result:[{"real_name": "张三", "phone": 16133131011, "entry_date": "2018-09113", "total_work_day": 30, "supplier_name": "xxx"}],
    total_page: 10,
    page:1
  },
@@ -198,6 +202,7 @@ export function submitForm(formData) {
 >search_str 搜索字符串  String
 >search_type 搜索方式1-员工姓名 2-员工电话 Integer
 >proj_id 项目人员编号  Integer
+>supplier_name 供应商 String
 
 ### 调用示例
 ```
@@ -205,7 +210,8 @@ export function submitForm(formData) {
   "page": 1,
   "search_str": "张员外",
   "search_type": 1,
-  "proj_id": 1
+  "proj_id": 1,
+  "supplier_name": "xxx"
 }
 ```
 
@@ -225,57 +231,6 @@ export function submitForm(formData) {
 }
 ```
 
----
-
-## 员工详情
-
-### 接口介绍
->uri: /proj/crew
->method: GET
-
->返回数据格式: JSON
-
-### 参数列表
->crew_id 员工编号 Integer
->proj_id 项目编号 Integer
-
-
-### 调用示例
-{
- "crew_id": 1,
- "proj_id": 2
-}
-
-### 成功返回
-```
-{
- "status": "ok",
- "content": {
-    "base_data": {
-      "real_name": "唐海伦",
-      "current_proj_name": "上海3CA电脑办公仓1号库",
-      "current_proj_id": 1,
-      "entry_date": "2018-09-01",
-      "start_date": "2018-09-01",
-      "work_status": "1" //当前工作状态 0-报名，1-工作中,2-工作结束,3-已离职
-    },
-    "income_data": [
-      {"date": "2018.7.8", "work_hours": 18.9, "settlement_amount": 189}
-    ],
-    "fine_data" [
-      {}
-    ]
- }
-}
-```
-
-### 错误返回
-```
-{
- "status": "error",
- "msg": "无权限查看此员工"
-}
-```
 ---
 
 ## 指定项目员工离职
