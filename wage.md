@@ -71,6 +71,7 @@ export function submitForm(formData) {
 
 ### 参数列表
 >page 第几页 Integer
+>supplier_name 供应商 String
 >start_date 开始日期 String
 >end_date 结束日期 String
 >proj_id 项目编号 Integer
@@ -81,7 +82,8 @@ export function submitForm(formData) {
   "page": 1,
   "start_date": "2018-09-01",
   "end_date": "2018-09-11",
-  "proj_id": 1
+  "proj_id": 1,
+  "supplier_name": "xxx"
 }
 
 ### 成功返回
@@ -126,7 +128,9 @@ export function submitForm(formData) {
 {
   "page": 1,
   "start_date": "2018-09-01",
-  "end_date": "2018-09-11"
+  "end_date": "2018-09-11",
+  "supplier_name": "xxx",
+  "proj_id": 1
 }
 
 ### 成功返回
