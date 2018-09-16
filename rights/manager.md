@@ -71,10 +71,7 @@
     },
     "role": [{'id': 1, 'role_name': "超级管理员"}],
     "proj_rights_list": {
-       company_list: [
-          'id': 1,
-          'company_name': 'xxx京东仓库'
-       ],
+       company_list: [{'id': 1, 'company_name': 'xxx京东仓库'}],
        company_proj_map: {
            1: [{'proj_name': '50人xx项目', 'proj_id': 1}, {'proj_name': '50人xx项目', 'proj_id': 2}]   
            2: [{'proj_name': '50人xx项目', 'proj_id': 3}, {'proj_name': '50人xx项目', 'proj_id': 4}]   
@@ -289,6 +286,79 @@
   'rights_ids': "1,2,3,4,5,6,7"
 }
 ```
+
+### 成功返回
+```
+{
+   "status": "ok"
+}
+```
+
+### 错误返回
+```
+{
+ "status": "error",
+ "msg": "system error"
+}
+```
+
+
+
+----
+
+## 为对应用户项目权限
+
+### 接口介绍
+
+>uri: /manager/proj/allocate
+>content-type: application/x-www-form-urlencoded
+>method: POST
+>返回数据格式: JSON
+>headers: 
+```
+{
+    'mimetype': 'multipart/form-data',
+    'enctype': 'multipart/form-data',
+    'X-Requested-With': 'XMLHttpRequest'
+}
+```
+
+### 参数列表
+> manage_id Integer 角色编号
+> proj_map 项目权限列表(json 字符串)  String
+
+
+### 调用示例
+####  分配指定项目的权限
+```
+{
+  'manage_id': 1,
+  'proj_map': "
+     {'proj_ids': [1,2,3,4]} 
+  "
+}
+```
+
+####  分配指定公司所有项目的权限
+```
+{
+  'manage_id': 1,
+  'proj_map': "
+     {'proj_ids': [1,2,3,4]} 
+  "
+}
+```
+
+####  分配所有项目的权限
+```
+{
+  'manage_id': 1,
+  'proj_map': "
+     {'company_id': [0]} 
+  "
+}
+```
+
 
 ### 成功返回
 ```
