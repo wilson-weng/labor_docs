@@ -201,7 +201,7 @@
    "status": "ok",
    "content": {
      "basic":  {"id": 1, "role_name": "超级管理员"},
-     "rights_resource": [{}]
+     "rights_resource": [{'resource_id': 1, 'resource_name': 'xxx', 'value': 'crew_management'}]
    }
 }
 ```
