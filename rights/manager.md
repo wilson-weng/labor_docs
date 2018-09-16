@@ -40,6 +40,47 @@
 
 -------
 
+## 用户列表
+
+### 接口介绍
+
+>uri: /manager
+>method: GET
+>content-type: application/x-www-form-urlencoded
+>返回数据格式: JSON
+
+### 参数列表
+>page 分页参数 Integer
+
+### 调用示例
+```
+{
+  "page": 1,
+}
+```
+
+### 成功返回
+```
+{
+ "status": "ok",
+ "content": [{"user_name": "王小明",     
+              "phone": 15809875551,
+              "email": "164606991@qq.com",
+              "user_status": 1}]
+}
+```
+
+### 错误返回
+```
+{
+ "status": "error",
+ "msg": ""
+}
+```
+
+-------
+
+
 ## 查看用户详情
 
 ### 接口介绍
@@ -224,7 +265,7 @@
 
 ### 接口介绍
 
->uri: /manager/<int:manager_id>
+>uri: /manager/password
 >method: PUT
 >返回数据格式: JSON
 
@@ -306,7 +347,7 @@
 
 ----
 
-## 为对应用户项目权限
+## 为对应用户分配项目权限
 
 ### 接口介绍
 
