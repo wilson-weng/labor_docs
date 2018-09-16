@@ -105,8 +105,9 @@ export function submitForm(formData) {
  "msg": "人员信息冲突....."
 }
 ```
----
 
+
+---
 ## 项目人员删除
 
 ### 接口介绍
@@ -140,6 +141,8 @@ export function submitForm(formData) {
  "msg": ""
 }
 ```
+
+
 ---
 ## 项目人员列表(支持搜索)
 >uri: /proj/crew
