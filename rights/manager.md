@@ -110,7 +110,7 @@
        "email": "164606991@qq.com",
        "user_status": 1
     },
-    "role": [{'id': 1, 'role_name': "超级管理员"}],
+    "roles": [{'id': 1, 'role_name': "超级管理员"}],
     "proj_rights_list": {
        company_list: [{'id': 1, 'company_name': 'xxx京东仓库'}],
        company_proj_map: {
@@ -148,6 +148,7 @@
 >user_name 账户名称 String
 >phone 电话号码 Long
 >email 邮箱 String
+>user_status 用户状态 1-恢复正常，2-注销 Integer
 
 ### 调用示例
 ```
