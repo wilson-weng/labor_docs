@@ -111,7 +111,7 @@
        "user_status": 1
     },
     "roles": [{'id': 1, 'role_name': "超级管理员"}],
-    "proj_rights_list": {
+    "proj_rights": {
        company_rights: [1, 2], // 公司级别权限 [0]拥有所有公司所有项目的权限
        proj_rights: [ // 项目级别权限, 表示该用户拥有指定项目的权限
          {company_id: 3, proj_id: 3},
