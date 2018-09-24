@@ -40,6 +40,47 @@
 
 -------
 
+## 用户列表
+
+### 接口介绍
+
+>uri: /manager
+>method: GET
+>content-type: application/x-www-form-urlencoded
+>返回数据格式: JSON
+
+### 参数列表
+>page 分页参数 Integer
+
+### 调用示例
+```
+{
+  "page": 1,
+}
+```
+
+### 成功返回
+```
+{
+ "status": "ok",
+ "content": [{"user_name": "王小明",     
+              "phone": 15809875551,
+              "email": "164606991@qq.com",
+              "user_status": 1}]
+}
+```
+
+### 错误返回
+```
+{
+ "status": "error",
+ "msg": ""
+}
+```
+
+-------
+
+
 ## 查看用户详情
 
 ### 接口介绍
@@ -69,13 +110,13 @@
        "email": "164606991@qq.com",
        "user_status": 1
     },
-    "role": [{'id': 1, 'role_name': "超级管理员"}],
-    "proj_rights_list": {
-       company_list: [{'id': 1, 'company_name': 'xxx京东仓库'}],
-       company_proj_map: {
-           1: [{'proj_name': '50人xx项目', 'proj_id': 1}, {'proj_name': '50人xx项目', 'proj_id': 2}]   
-           2: [{'proj_name': '50人xx项目', 'proj_id': 3}, {'proj_name': '50人xx项目', 'proj_id': 4}]   
-       }
+    "roles": [{'id': 1, 'role_name': "超级管理员"}],
+    "proj_rights": {
+       company_rights: [1, 2], // 公司级别权限 [0]拥有所有公司所有项目的权限
+       proj_rights: [ // 项目级别权限, 表示该用户拥有指定项目的权限
+         {company_id: 3, proj_id: 3},
+         {company_id: 3, proj_id: 4},
+       ]
     }
  
  }
@@ -107,6 +148,7 @@
 >user_name 账户名称 String
 >phone 电话号码 Long
 >email 邮箱 String
+>user_status 用户状态 1-恢复正常，2-注销 Integer
 
 ### 调用示例
 ```
@@ -224,7 +266,7 @@
 
 ### 接口介绍
 
->uri: /manager/<int:manager_id>
+>uri: /manager/password
 >method: PUT
 >返回数据格式: JSON
 
@@ -283,7 +325,7 @@
 ```
 {
   'manage_id': 1,
-  'rights_ids': "1,2,3,4,5,6,7"
+  'role_ids': "1,2,3,4,5,6,7"
 }
 ```
 
@@ -306,7 +348,7 @@
 
 ----
 
-## 为对应用户项目权限
+## 为对应用户分配项目权限
 
 ### 接口介绍
 
@@ -344,7 +386,7 @@
 {
   'manage_id': 1,
   'proj_map': "
-     {'proj_ids': [1,2,3,4]} 
+     {'company_ids': [1,2,3,4]} 
   "
 }
 ```

@@ -19,13 +19,13 @@
 
 ### 参数列表
 >role_name 角色名称 String
->rank 排序(控制后端中的显示顺序/非业务字段)   Integer
 
 
 ### 调用示例
 ```
 {
   'role_name': '超级管理员',
+  
 }
 ```
 
@@ -93,7 +93,7 @@
 -----
 
 
-## 修改角色
+## 删除角色
 
 ### 接口介绍
 
@@ -176,7 +176,46 @@
 ```
 ---
 
+## 角色详情
 
+### 接口介绍
+
+>uri: /rights/role/<int:role_id>
+>method: GET
+>返回数据格式: JSON
+
+### 参数列表
+> role_id Integer 角色编号
+
+
+### 调用示例
+```
+{
+  'role_id': 1
+}
+```
+
+### 成功返回
+```
+{
+   "status": "ok",
+   "content": {
+     "basic":  {"id": 1, "role_name": "超级管理员"},
+     "rights_resource": [{'resource_id': 1, 'resource_name': 'xxx', 'value': 'crew_management'}]
+   }
+}
+```
+
+### 错误返回
+```
+{
+ "status": "error",
+ "msg": "system error"
+}
+```
+
+
+----
 
 ## 为对应角色分配权限
 
