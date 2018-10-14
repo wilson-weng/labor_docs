@@ -178,8 +178,6 @@
 
 -------
 
-
-
 ## 登陆
 
 ### 接口介绍
@@ -191,13 +189,13 @@
 
 ### 参数列表
 >phone 电话号码 Long
->password 密码 String
+>code 验证码 String
 
 ### 调用示例
 ```
 {
   "phone": 18922101112,
-  "password": "ascdf"
+  "code": "871131"
 }
 ```
 
@@ -224,61 +222,25 @@
 }
 ```
 
----
-
-## 忘记密码(发送重设密码链接)
-
-### 接口介绍
-
->uri: /manager/forget/psw
->method: GET
->返回数据格式: JSON
-
-### 参数列表
-> phone 电话号码 Long
-
-### 调用示例
-{
-  "phone": 15122133551
-}
-
-### 成功返回
-```
-{
- "status": "ok",
- "content": {
-   url: "https://mananger.hrms.cn/sys_user/change/psw?manager_id=1&req=1225333"
- }
-}
-```
-
-### 错误返回
-```
-{
- "status": "error",
- "msg": ""
-}
-```
-
----
-
-## 更改密码
+----
+## 发送短信验证码
 
 ### 接口介绍
 
->uri: /manager/password
->method: PUT
+>uri: /manager/login/code/send
+>method: POST
+>content-type: application/x-www-form-urlencoded
 >返回数据格式: JSON
 
 ### 参数列表
->manager_id 用户id Integer
->password 密码 String
+>phone 电话号码 Long
 
 ### 调用示例
+```
 {
-  "user_id": 1,
-  "password": 1231
+  "phone": 18922101112
 }
+```
 
 ### 成功返回
 ```
@@ -291,14 +253,11 @@
 ```
 {
  "status": "error",
- "msg": ""
+ "msg": "你的号码已经封号"
 }
 ```
 
-
-
-----
-
+-----
 ## 为对应用户分配角色
 
 ### 接口介绍
